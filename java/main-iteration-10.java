@@ -1,6 +1,6 @@
 import java.util.PriorityQueue;
 // @pjs preload must be used to preload the image so that it will be available when used in the sketch  
-/* @pjs preload="images/carotid3.jpg,images/bacteria-s.jpg,images/hepatic_artery.jpg,images/lmca-stenosis2.jpg,images/carotid-side2.jpg,images/ct-brain-s.jpg,images/left-artery.jpg"; */
+/* @pjs preload="img/carotid3.jpg,img/bacteria-s.jpg,img/hepatic_artery.jpg,img/lmca-stenosis2.jpg,img/carotid-side2.jpg,img/ct-brain-s.jpg,img/left-artery.jpg"; */
 
 /*
 Gaussian Filter 5x5
@@ -14,13 +14,13 @@ Gaussian Filter 5x5
 
 
 
-String imgPath = "images/bacteria-s.jpg";
-//String imgPath = "images/hepatic_artery.jpg";
-//String imgPath = "images/lmca-stenosis2.jpg";
-//String imgPath = "images/carotid-side2.jpg";
-//String imgPath = "images/ct-brain-s.jpg";
-//String imgPath = "images/carotid3.jpg";
-//String imgPath = "images/left-artery.jpg";
+String imgPath = "img/bacteria-s.jpg";
+//String imgPath = "img/hepatic_artery.jpg";
+//String imgPath = "img/lmca-stenosis2.jpg";
+//String imgPath = "img/carotid-side2.jpg";
+//String imgPath = "img/ct-brain-s.jpg";
+//String imgPath = "img/carotid3.jpg";
+//String imgPath = "img/left-artery.jpg";
 
 //String imgPath;
 //IntelligentScissor(String imgFilePath) {
