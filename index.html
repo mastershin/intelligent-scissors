@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!--
+
+References: 
+
+Mortensen, E., Barrett, W. (1995). Intelligent Scissors for Image Composition. 
+    Siggraph ’95: Proceedings of the 22nd annual conference on Computer Graphics and interactive techniques. New York, NY: ACM Press.
+
+Mortensen, E., Barrett, W. (1998). Interactive Segmentation with Intelligent Scissors. 
+    Graphical models and image processing.
+
+
+http://courses.cs.washington.edu/courses/cse455/02wi/readings/mort-sigg95.pdf
+
+-->
+<html>
+<head>
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/processing-1.4.8.min.js"></script>
+	
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<style>
+.ui-slider .ui-slider-handle {
+
+    cursor: default;
+    height: 1.2em;
+    position: absolute;
+    width: 1em;
+    z-index: 2;
+}
+</style>
+
+</head>
+<body bgcolor="white">
+  
+<h1>Intelligent Scissors for Image Composition v1.1</h1>
+<h3>Javascript Implementation using Processingjs library. Algorithm: Cost = wz * Fz + wg * Fg + wd * Fd</h3> 
+<select id="image">
+<option>bacteria-s.jpg</option>
+<option>hepatic_artery.jpg</option>
+<option>lmca-stenosis2.jpg</option>
+<option>carotid-side2.jpg</option>
+<option>ct-brain-s.jpg</option>
+<option>carotid3.jpg</option>
+<option>left-artery.jpg</option>
+</select>
+<label><input type="checkbox" id="displayPathEvaluted"/>Disp Path Evaluated</label>
+<br/>
+Frame Rate <select id="frameRate">
+<option>1</option>
+<option>3</option>
+<option>5</option>
+<option>10</option>
+<option>15</option>
+<option selected>30</option>
+</select>
+<!--
+Fd <select id="optDisplayFd">
+<option>Display Orig</option>
+<option>Display Fd</option>
+</select>
+-->
+Search Area <select id="searchArea">
+<option value="3">3x3</option>
+<option value="5">5x5</option>
+<option value="10">10x10</option>
+<option value="15" selected>15x15</option>
+<option value="20">20x20</option>
+<option value="30">30x30</option>
+<option value="50">50x50</option>
+<option value="100">100x100</option>
+</select>
+
+<table cellspacing="10">
+    <tr><td>wz <input type="text" value="0.43" id="wz"/><div id="wz_slider"></div></td>
+    <td>wz <input type="text" value="0.14" id="wg"/><div id="wg_slider"></div></td>
+    <td>wz <input type="text" value="0.43" id="wd"/><div id="wd_slider"></div></td></tr>
+</table>
+
+
+</h3>
+
+<canvas id="myCanvas" data-processing-sources="convolution.java IntelligentScissor-10.java PriorityQueue.java main-iteration-10.java"></canvas>
+
+<script>
+    $(function() {
+        $('#wz_slider').slider( { min:0, max: 1, step: 0.01, value: 0.43 } );
+        $('#wg_slider').slider( { min:0, max: 1, step: 0.01, value: 0.14} );
+        $('#wd_slider').slider( { min:0, max: 1, step: 0.01, value: 0.43} );
+        
+        $( "#wz_slider" ).on( "slidechange", function( event, ui ) { $('#wz').val( ui.value ); updateWeight(); } );
+        $( "#wg_slider" ).on( "slidechange", function( event, ui ) { $('#wg').val( ui.value ); updateWeight(); } );
+        $( "#wd_slider" ).on( "slidechange", function( event, ui ) { $('#wd').val( ui.value ); updateWeight(); } );
+        
+        function getPjs() {
+            var pjs = Processing.getInstanceById('myCanvas');
+            return pjs;
+        }
+        $('#displayPathEvaluted').click( function() {
+            getPjs().setDisplayPathEvaluted( $(this).is(':checked') );
+        });
+        
+         $('#frameRate').change( function() {
+            getPjs().setFrameRate($(this).val());
+        });
+        function updateWeight() {
+            getPjs().setWeight($('#wz').val(), $('#wg').val(), $('#wd').val());
+        }
+        $('#wz').on('input', function() {
+            updateWeight();            
+        });
+        $('#wg').on('input', function() {
+            updateWeight();            
+        });
+        $('#wd').on('input', function() {
+            updateWeight();            
+        });
+
+        $('#image').change( function() {
+            
+            //alert('img/' + $('#image').val());
+            getPjs().changeImage('img/' + $(this).val());
+        });
+
+        //$('#optDisplayFd').change( function() {
+            //getPjs().setOptDisplayFd($(this).val() == 'Display Fd');
+        //});
+
+        $('#searchArea').change(function() {
+            getPjs().setSearchAreaSize(parseInt($(this).val()));
+        });
+
+    });
+</script>
+<h3>Author</h3>
+Jae Shin | mastershin at gmail.com | <a href="http://www.linkedin.com/in/jaeyulshin">Linked In</a>
+
+<h3>References</h3>
+<p>Mortensen, E., Barrett, W. (1995). <a href="http://courses.cs.washington.edu/courses/cse455/02wi/readings/mort-sigg95.pdf">Intelligent Scissors for Image Composition</a>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Siggraph ’95: Proceedings of the 22nd annual conference on Computer Graphics and interactive techniques</i>. New York, NY: ACM Press.</p>
+<p>
+Mortensen, E., Barrett, W. (1998). <a href="http://courses.cs.washington.edu/courses/cse455/09wi/readings/seg_scissors.pdf">Interactive Segmentation with Intelligent Scissors</a>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Graphical models and image processing.
+</p>
+
+</body>
+    
+</html>
