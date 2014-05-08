@@ -16,7 +16,7 @@ This was my final class project for
 Uses 100% Javascript, ProcessingJS, jQuery library.
 
 ## Note ##
-Deployed to [http://intelligent-scissors.appspot.com](http://snake-active-contour.appspot.com)
+Deployed to [http://intelligent-scissors.appspot.com](http://intelligent-scissors.appspot.com)
 
 ## Reference ##
 * Mortensen, E., Barrett, W. (1995). [Intelligent Scissors for Image Composition.](http://courses.cs.washington.edu/courses/cse455/02wi/readings/mort-sigg95.pdf)
