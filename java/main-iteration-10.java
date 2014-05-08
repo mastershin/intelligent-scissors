@@ -39,7 +39,7 @@ void changeImage(String newImage) {
     draw();
 }
 
-boolean displayPathEvaluted = false;
+boolean displayPathEvaluted = true;
 public boolean setDisplayPathEvaluted(boolean b) {
     displayPathEvaluted = b;
     //_scissor.displayPathEvaluted = b;
