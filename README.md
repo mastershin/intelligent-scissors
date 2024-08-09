@@ -1,4 +1,4 @@
-#Intelligent Scissors for Image Composition Javascript Implementation v1.0
+# Intelligent Scissors for Image Composition Javascript Implementation v1.0
 
 ## Author ##
 Jae Y Shin
