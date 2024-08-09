@@ -1,4 +1,4 @@
-# Intelligent Scissors for Image Composition Javascript Implementation v1.0
+# Intelligent Scissors for Image Composition Javascript Implementation v1.1
 
 ## Author ##
 Jae Y Shin
@@ -20,7 +20,7 @@ Deployed to [https://mastershin.github.io/intelligent-scissors/](https://masters
 
 ## Reference ##
 * Mortensen, E., Barrett, W. (1995). [Intelligent Scissors for Image Composition.](http://courses.cs.washington.edu/courses/cse455/02wi/readings/mort-sigg95.pdf)
-    Siggraph �95: Proceedings of the 22nd annual conference on Computer Graphics and interactive techniques. New York, NY: ACM Press.
+    Siggraph 1995: Proceedings of the 22nd annual conference on Computer Graphics and interactive techniques. New York, NY: ACM Press.
 
 * Mortensen, E., Barrett, W. (1998). [Interactive Segmentation with Intelligent Scissors.](http://courses.cs.washington.edu/courses/cse455/09wi/readings/seg_scissors.pdf)
     Graphical models and image processing.
